@@ -1,5 +1,6 @@
 " Initial Setup:
 hi clear
+set background=dark
 
 if exists("syntax_on")
 	syntax reset
@@ -33,29 +34,6 @@ let s:fore4 = ['#808080', 244]
 let s:unknown = ['#0000ff', 12]
 let s:unknown2 = ['#ffff00', 11]
 
-if &background == "light"
-	" Regular Colors
-	let s:red = ['#af0000', 124]
-	let s:orange = ['#af8700', 136]
-	let s:yellow = ['#afaf00', 142]
-	let s:green = ['#00af00', 34]
-	let s:aqua = ['#0a9dff', 39]
-	let s:blue = ['#005faf', 25]
-	let s:purple = ['#8700af', 91]
-	" Background Colors
-	let s:back0 = ['#e4e4e4', 254]
-	let s:back = ['#dadada', 253]
-	let s:back2 = ['#d0d0d0', 252]
-	let s:back3 = ['#b2b2b2', 249]
-	let s:back4 = ['#949494', 246]
-	" Foreground Colors
-	let s:fore0 = ['#121212', 233]
-	let s:fore = ['#1c1c1c', 234]
-	let s:fore2 = ['#3a3a3a', 237]
-	let s:fore3 = ['#585858', 240]
-	let s:fore4 = ['#767676', 243]
-endif
-
 " 16 color terminal support
 if &t_Co == 16
 	let s:red[1] = 1
@@ -75,26 +53,6 @@ if &t_Co == 16
 	let s:fore2[1] = 15
 	let s:fore3[1] = 7
 	let s:fore4[1] = 7
-
-	if &background == "light"
-		let s:red[1] = 1
-		let s:orange[1] = 7
-		let s:yellow[1] = 3
-		let s:green[1] = 2
-		let s:aqua[1] = 6
-		let s:blue[1] =  4
-		let s:purple[1] = 5
-		let s:back0[1] = 15
-		let s:back[1] = 15
-		let s:back2[1] = 15
-		let s:back3[1] = 7
-		let s:back4[1] = 7
-		let s:fore0[1] = 0
-		let s:fore[1] = 0
-		let s:fore2[1] = 0
-		let s:fore3[1] = 8
-		let s:fore4[1] = 8
-	endif
 endif
 
 " Emphasis:
@@ -183,7 +141,7 @@ call s:HF('PreCondit', s:green)
 call s:HF('PreProc', s:orange)
 call s:HF('Question', s:green) "Command Question
 call s:HF('Repeat', s:purple)
-call s:HF('Search', s:fore2, s:back3, s:bold_underline)
+call s:HF('Search', s:green, s:none, s:underline)
 
 call s:HF('SignColumn', s:none, s:back0)
 call s:HF('SpecialChar', s:red)
