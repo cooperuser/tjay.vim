@@ -25,6 +25,7 @@ if [ ! -z $BRANCH ]; then
 fi
 
 IFS='/' read -r -a DIRS <<< "$(dirs)";
+[ -z ${DIRS[0]} ] && DIRS[0]="/";
 local CDIR=${DIRS[-1]};
 unset 'DIRS[${#DIRS[@]}-1]';
 chevron $DIR_BG;
