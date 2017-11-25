@@ -5,7 +5,7 @@ parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
 }
 
-local EXIT=$?; PS1="";
+local EXIT=$1; PS1="";
 local USER_FG=231; local USER_BG=$([ $USER = root ] && echo 124 || echo 31);
 local BRANCH_FG=251; local BRANCH_BG=236;
 local DIR_FG=251; local DIR_BG=240;
