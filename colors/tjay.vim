@@ -125,9 +125,9 @@ call s:HF('IncSearch', s:green, s:none)
 " call s:HF('IncSearch', s:back0, s:aqua)
 " call s:HF('IncSearch', s:fore, s:back4, s:bold)
 
-call s:HF('Keyword', s:red)
+call s:HF('Keyword', s:purple)
 call s:HF('Label', s:yellow)
-call s:HF('Macro', s:yellow)
+call s:HF('Macro', s:red)
 
 call s:HF('MatchParen', s:orange, s:back2, s:bold)
 call s:HF('ModeMsg', s:fore)
@@ -139,7 +139,7 @@ call s:HF('PmenuSel', s:back0, s:blue)
 call s:HF('PmenuSbar', s:fore, s:back3)
 call s:HF('PmenuThumb', s:back0, s:blue)
 
-call s:HF('PreCondit', s:green)
+call s:HF('PreCondit', s:purple)
 call s:HF('PreProc', s:orange)
 call s:HF('Question', s:green) "Command Question
 call s:HF('Repeat', s:purple)

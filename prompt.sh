@@ -12,7 +12,7 @@ local DIR_FG=251; local DIR_BG=240;
 local DIR_SEP=245; local CUR_DIR_FG=253;
 local ERR_FG=231; local ERR_BG=52;
 local FG=0; local BG=0;
-local BRANCH_LEN=0;
+local BRANCH_LEN=0; local BRANCH_INDEX=1;
 setcolors () { FG=$1;BG=$2;PS1+=$(echo -e "\[\E[$([ $3 -eq 1 ] && echo 1 || echo 0)m\]\[\E[38;5;$1m\]\[\E[48;5;$2m\]\c");}
 chevron() { setcolors $BG $1 0;PS1+=$(echo -e "");}
 
@@ -25,6 +25,7 @@ if [ ! -z $BRANCH ]; then
 	local FORMAT_BRANCH=" $BRANCH ";
 	PS1+=$FORMAT_BRANCH;
 	BRANCH_LEN=${#FORMAT_BRANCH};
+	BRANCH_INDEX+=1;
 fi
 
 IFS='/' read -r -a DIRS <<< "$(dirs)";
@@ -40,7 +41,7 @@ for DIR in "${DIRS[@]}"; do
 done
 setcolors $CUR_DIR_FG $DIR_BG 1;
 CUR_DIR+=" $CDIR ";
-if [ $((${#CUR_DIR}+${#USER}+${#BRANCH_LEN}+17)) -gt $(tput cols) ]; then
+if [ $((${#CUR_DIR}+${#USER}+${#BRANCH_LEN}+$(((${#DIRS}+1)*2))+3)) -gt $(tput cols) ]; then
 	CUR_DIR=" $CDIR ";
 fi
 PS1+=$CUR_DIR;
